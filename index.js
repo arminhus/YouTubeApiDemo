@@ -1,12 +1,11 @@
 const YOUTUBE_KEY = "AIzaSyDzI7kC9s2mU8xzfAbxlXPdZEs162-wV_U";
 const YOUTUBE_SEARCH_URL = "https://www.googleapis.com/youtube/v3/search";
 
-function getDataFromApi(callback) {
+function getDataFromApi(query) {
   $.getJSON(
-    YOUTUBE_SEARCH_URL,
-    {
+    YOUTUBE_SEARCH_URL, {
       part: "snippet",
-      q: "Cats",
+      q: query,
       maxResults: 5,
       key: YOUTUBE_KEY
     },
@@ -14,7 +13,11 @@ function getDataFromApi(callback) {
       return data.items.map((item, index) => {
         // console.log(item);
         const link = "https://www.youtube.com/watch?v=";
-        const { url, height, width } = item.snippet.thumbnails.default;
+        const {
+          url,
+          height,
+          width
+        } = item.snippet.thumbnails.default;
 
         $(".js-search-results").append(`
     <div>
