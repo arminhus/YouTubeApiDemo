@@ -9,13 +9,14 @@
   </head>
   <body>
     <main role="main">
-      <h1 role="heading">Search YouTube videos</h1>
+      <h1 role="heading" aria-level="1">Search YouTube videos</h1>
       <form role="form" action="#" class="js-search-form">
-        <label role="aria-label" for="query"></label> <input type="text" class="js-query" />
+        <label role="dialog" aria-labelledby="dialog" for="query"></label> 
+        <input role = "searchbox" aria-label= "Search" type="text" class="js-query" />
         <button role="button" type="submit">Search</button>
       </form>
 
-      <h2 role="heading">Results</h2>
+      <h2 role="heading" aria-level="2">Results</h2>
       <div class="js-search-results"></div>
     </main>
     <script
